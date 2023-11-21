@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -15,6 +16,12 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import frc.robot.Constants;
+import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.DriveCommand;
+import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.RiseSubsystem;
+
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -23,17 +30,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
   private RobotContainer m_robotContainer;
-  private final MotorController m_left1 = new WPI_VictorSPX(1);
-  private final MotorController m_left2 = new WPI_VictorSPX(2);
-  private final MotorController m_right1 = new WPI_VictorSPX(3);
-  private final MotorController m_right2 = new WPI_VictorSPX(4);
-  private final MotorController m_left = new MotorControllerGroup(m_left1, m_left2);
-  private final MotorController m_right = new MotorControllerGroup(m_right1, m_right2);
-
-  private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
-  private final Joystick m_stick = new Joystick(0);
   private final Timer m_timer = new Timer();
 
   /**
@@ -86,17 +83,16 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     // test code
     // Drive for 2 seconds
+    // if (m_timer.get() < 2.0) {
 
-    if (m_timer.get() < 2.0) {
+    //   // Drive forwards half speed, make sure to turn input squaring off
+    //   m_riseMotor.set(0.1);
 
-      // Drive forwards half speed, make sure to turn input squaring off
-      m_robotDrive.arcadeDrive(0.0, 0.5, false);
+    // } else {
 
-    } else {
+    //   m_riseMotor.stopMotor(); // stop robot
 
-      m_robotDrive.stopMotor(); // stop robot
-
-    }
+    // }
   }
 
   @Override
@@ -108,6 +104,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
   }
 
   /** This function is called periodically during operator control. */

@@ -16,4 +16,10 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  public static final int left1MotorID = 1;   // }  grouped together
+  public static final int left2MotorID = 2;   // }  physically
+
+  public static final int right1MotorID = 3;  // }  grouped together
+  public static final int right2MotorID = 4;  // }  physically
+  
 }
