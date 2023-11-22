@@ -7,7 +7,9 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.RiseCommand;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.RiseSubsystem;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
@@ -29,16 +31,16 @@ public class RobotContainer {
   
   // Subsystems
   private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
-
+  private final RiseSubsystem m_RiseSubsystem = new RiseSubsystem();
   // Commands
   private final DriveCommand m_DriveCommand = new DriveCommand(m_DriveSubsystem, m_driverController);
-
+  private final RiseCommand m_RiseCommand = new RiseCommand(m_RiseSubsystem, m_driverController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
-
+    m_RiseSubsystem.setDefaultCommand(m_RiseCommand);
     m_DriveSubsystem.setDefaultCommand(m_DriveCommand);
   }
 

@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.RiseCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.RiseSubsystem;
 
@@ -32,7 +33,6 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
   private final Timer m_timer = new Timer();
-
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -82,17 +82,6 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     // test code
-    // Drive for 2 seconds
-    // if (m_timer.get() < 2.0) {
-
-    //   // Drive forwards half speed, make sure to turn input squaring off
-    //   m_riseMotor.set(0.1);
-
-    // } else {
-
-    //   m_riseMotor.stopMotor(); // stop robot
-
-    // }
   }
 
   @Override

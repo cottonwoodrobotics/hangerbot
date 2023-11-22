@@ -21,5 +21,10 @@ public final class Constants {
 
   public static final int right1MotorID = 3;  // }  grouped together
   public static final int right2MotorID = 4;  // }  physically
+
+  public static final int riseMotorID = 5;
+
+  public static final int XButton = 1;
+  public static final int AButton = 2;
   
 }
