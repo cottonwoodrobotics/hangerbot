@@ -26,5 +26,7 @@ public final class Constants {
 
   public static final int XButton = 1;
   public static final int AButton = 2;
+  public static final int BButton = 3;
+  public static final int YButton = 4;
   
 }
