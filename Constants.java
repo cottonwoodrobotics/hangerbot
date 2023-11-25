@@ -28,6 +28,8 @@ public final class Constants {
   public static final int lowLauncherMotorID = 7;
   public static final int highLauncherMotorID = 9;
 
+  public static final int rollerMotorID = 8;
+
   public static final int XButton = 1;
   public static final int AButton = 2;
   public static final int BButton = 3;

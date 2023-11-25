@@ -9,10 +9,12 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.CollectorCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.RiseCommand;
+import frc.robot.commands.RollerCommand;
 import frc.robot.commands.LauncherCommand;
 import frc.robot.subsystems.CollectorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.RiseSubsystem;
+import frc.robot.subsystems.RollerSubsystem;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -38,11 +40,13 @@ public class RobotContainer {
   private final RiseSubsystem m_RiseSubsystem = new RiseSubsystem();
   private final CollectorSubsystem m_CollectorSubsystem = new CollectorSubsystem();
   private final LauncherSubsystem m_LauncherSubsystem = new LauncherSubsystem();
+  private final RollerSubsystem m_RollerSubsystem = new RollerSubsystem();
   // Commands
   private final DriveCommand m_DriveCommand = new DriveCommand(m_DriveSubsystem, m_driverController);
   private final RiseCommand m_RiseCommand = new RiseCommand(m_RiseSubsystem, m_driverController);
   private final CollectorCommand m_CollectorCommand = new CollectorCommand(m_CollectorSubsystem, m_driverController);
   private final LauncherCommand m_LauncherCommand = new LauncherCommand(m_LauncherSubsystem, m_driverController);
+  private final RollerCommand m_RollerCommand = new RollerCommand(m_RollerSubsystem, m_driverController);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -51,6 +55,7 @@ public class RobotContainer {
     m_DriveSubsystem.setDefaultCommand(m_DriveCommand);
     m_CollectorSubsystem.setDefaultCommand(m_CollectorCommand);
     m_LauncherSubsystem.setDefaultCommand(m_LauncherCommand);
+    m_RollerSubsystem.setDefaultCommand(m_RollerCommand);
   }
 
   /**
