@@ -11,17 +11,23 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class CollectorSubsystem extends SubsystemBase {
+public class LauncherSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  CANSparkMax collectorMotor = new CANSparkMax(Constants.collectorMotorID, MotorType.kBrushless);
-  public CollectorSubsystem() {
-    collectorMotor.restoreFactoryDefaults();
-    collectorMotor.setSmartCurrentLimit(38);
-    collectorMotor.setSecondaryCurrentLimit(40);
+  CANSparkMax lowLauncherMotor = new CANSparkMax(Constants.lowLauncherMotorID, MotorType.kBrushless);
+  CANSparkMax highLauncherMotor = new CANSparkMax(Constants.highLauncherMotorID, MotorType.kBrushless);
+
+  public LauncherSubsystem() {
+    lowLauncherMotor.restoreFactoryDefaults();
+    lowLauncherMotor.setSmartCurrentLimit(38);
+    lowLauncherMotor.setSecondaryCurrentLimit(40);
+    highLauncherMotor.restoreFactoryDefaults();
+    highLauncherMotor.setSmartCurrentLimit(38);
+    highLauncherMotor.setSecondaryCurrentLimit(40);
   }
 
-  public void collect(double speed) {
-    collectorMotor.set(speed);
+  public void launch(double lowSpeed, double highSpeed) {
+    lowLauncherMotor.set(-lowSpeed);
+    highLauncherMotor.set(highSpeed);
   }
 
   @Override
